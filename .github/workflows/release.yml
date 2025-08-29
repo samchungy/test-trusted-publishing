@@ -44,12 +44,12 @@ jobs:
       - name: Release
         run: pnpm publish --access public
   snapshot:
+    name: "Snapshot"
     if: github.event_name == 'workflow_dispatch'
     permissions:
       contents: write
       id-token: write
       pull-requests: write
-    name: Release
     runs-on: ubuntu-latest
     env:
       CI: true
