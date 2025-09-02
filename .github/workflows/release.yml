@@ -84,6 +84,6 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Publish
-        uses: seek-oss/changesets-snapshot@support-no-npm-token
+        uses: seek-oss/changesets-snapshot@support-no-npm-token-test
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
