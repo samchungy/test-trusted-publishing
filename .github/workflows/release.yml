@@ -78,4 +78,9 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Release
-        run: pnpm publish --access public
+        uses: changesets/action@v1
+        with:
+          publish: pnpm release
+          version: pnpm changeset version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
