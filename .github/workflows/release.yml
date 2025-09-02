@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches:
-      - beta
+      - main
   workflow_dispatch:
 
 jobs:
@@ -83,10 +83,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Release
-        uses: changesets/action@v1
-        with:
-          publish: pnpm release
-          version: pnpm changeset version
+      - name: Publish
+        uses: seek-oss/changesets-snapshot@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
